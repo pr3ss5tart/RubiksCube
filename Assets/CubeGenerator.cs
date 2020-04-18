@@ -18,6 +18,12 @@ public class CubeGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        topRot.transform.position = new Vector3(1f, 2f, 1f);
+        bottomRot.transform.position = new Vector3(1f, -2f, 1f);
+        rightRot.transform.position = new Vector3(2f, 1f, 1f);
+        leftRot.transform.position = new Vector3(-2f, 1f, 1f);
+        frontRot.transform.position = new Vector3(1f, 1f, 2f);
+        backRot.transform.position = new Vector3(1f, 1f, -2f);
         GenerateCube();
     }
 
@@ -58,27 +64,70 @@ public class CubeGenerator : MonoBehaviour
         }
     }
 
+    void Rotate()
+    {
+        //rotate rightRot
+        rightRot.transform.RotateAround(rightRot.transform.position, Vector3.right, 90f);
+    }
+    void RotateFace2()
+    {
+
+        for(int i = 6; i < transform.childCount; i++)
+        {
+            //this parents cubes to main cube
+            Transform temp = transform.GetChild(i);
+
+            if (temp.localPosition.x > 1.5f && temp.localPosition.x < 2.5f)    //right face
+            {
+                temp.transform.parent = rightRot.transform; //parent to rightRot
+            }
+        }
+
+        Rotate();
+
+        Debug.Log("Children of RightRot: " + rightRot.transform.childCount);
+
+        /*for (int i = 6; i < kidCount-1; i++)
+        {
+            //this parents cubes to main cube
+            Transform temp = transform.GetChild(i);
+
+            if (temp.localPosition.x > 1.5f && temp.localPosition.x < 2.5f)    //right face
+            {
+                temp.transform.parent = transform; //parent to rightRot
+            }
+        }*/
+
+        for(int i = 0; i < rightRot.transform.childCount; i++)
+        {
+            Transform t = rightRot.transform.GetChild(i);
+            t.transform.parent = transform;
+        }
+    }
+
     void RotAroundY()
     {
         int faceToRot = 2;
         //GameObject newRotation = new GameObject();
-        topRot.transform.position = new Vector3(1f, 2.75f, 1f);
 
         //unparent cubes to be rotated
-        for(int x=0; x < cubeSize; x++)
+        /*instead, have all the pivots be the first 6 children of gameobject
+         Then iterate through the rest of children and see if their localposition.X/Y/Z falls within the range of that face
+         Then parent them, rotate, unparent, etc*/
+        /*for(int x=0; x < cubeSize; x++)
         {
             for(int z=0; z < cubeSize; z++)
             {
                 pieces[x, faceToRot, z].transform.parent = topRot.transform;
             }
-        }
+        }*/
 
         //Rotate
         //topRot.transform.Rotate(new Vector3(0f, 90f, 0f));
         topRot.transform.RotateAround(topRot.transform.position,Vector3.up,90f);
 
         //Parent back to main cube
-        for (int x = 0; x < cubeSize; x++)
+        /*for (int x = 0; x < cubeSize; x++)
         {
             for (int y = 0; y < cubeSize; y++)
             {
@@ -87,13 +136,13 @@ public class CubeGenerator : MonoBehaviour
                     pieces[x, y, z].transform.parent = transform;
                 }
             }
-        }
+        }*/
         Debug.Log("unparented");
 
         //Reset
         //topRot.transform.Rotate(new Vector3(0f, -90f, 0f));
         //topRot.transform.RotateAround(topRot.transform.position, Vector3.up, -90f);
-        ResetCubePosition();
+        //ResetCubePosition();
     }
 
     void RotAroundX(int leftOrRight)
@@ -102,12 +151,12 @@ public class CubeGenerator : MonoBehaviour
         //GameObject newRotation = new GameObject();
         if(leftOrRight == 1)
         {
-            rightRot.transform.position = new Vector3(2.75f, 1f, 1f);
+            //rightRot.transform.position = new Vector3(2.75f, 1f, 1f);
             faceToRot = 2;
         }
         else
         {
-            leftRot.transform.position = new Vector3(-2.75f, 1f, 1f);
+            //leftRot.transform.position = new Vector3(-2.75f, 1f, 1f);
             faceToRot = 0;
         }
         
@@ -171,7 +220,8 @@ public class CubeGenerator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             Debug.Log("Rotating Around X...");
-            RotAroundX(1);
+            //RotAroundX(1);
+            RotateFace2();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -186,5 +236,6 @@ public class CubeGenerator : MonoBehaviour
     void Update()
     {
         RotateFace();
+        //Rotate();
     }
 }
