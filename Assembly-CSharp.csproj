@@ -67,6 +67,7 @@
     <Compile Include="Assets\BasicMovement\movement2.cs" />
     <Compile Include="Assets\CubeControls.cs" />
     <Compile Include="Assets\CubeGenerator.cs" />
+    <Compile Include="Assets\FaceRotator.cs" />
     <Compile Include="Assets\Kociemba\K_CoordCube.cs" />
     <Compile Include="Assets\Kociemba\K_CoordCubeBuildTables.cs" />
     <Compile Include="Assets\Kociemba\K_CubieCube.cs" />

@@ -548,8 +548,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1976735235}
-        m_MethodName: RotateRFace
+      - m_Target: {fileID: 1976735237}
+        m_MethodName: ParentRFace
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3539,6 +3539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1976735236}
   - component: {fileID: 1976735235}
+  - component: {fileID: 1976735237}
   m_Layer: 0
   m_Name: TestCube
   m_TagString: Untagged
@@ -3568,6 +3569,8 @@ MonoBehaviour:
   leftRot: {fileID: 1818451796}
   frontRot: {fileID: 1929195358}
   backRot: {fileID: 1321942790}
+  progress: 0
+  speed: 2
 --- !u!4 &1976735236
 Transform:
   m_ObjectHideFlags: 0
@@ -3588,6 +3591,29 @@ Transform:
   m_Father: {fileID: 907689083}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976735237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976735234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9768a0e5a5850a5449c3b08915ba44f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbc: {fileID: 0}
+  cubePrefab: {fileID: 0}
+  cubeSize: 3
+  topRot: {fileID: 0}
+  bottomRot: {fileID: 0}
+  rightRot: {fileID: 736706516}
+  leftRot: {fileID: 0}
+  frontRot: {fileID: 0}
+  backRot: {fileID: 0}
+  progress: 0
+  speed: 2
 --- !u!1001 &2004993908
 PrefabInstance:
   m_ObjectHideFlags: 0

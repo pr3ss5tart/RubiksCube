@@ -150,7 +150,7 @@ public class CubeGenerator : MonoBehaviour
         }
         
     }
-    public void RotateRFace()
+    /*public void RotateRFace()
     {
         List<Transform> temps = new List<Transform>();
 
@@ -182,7 +182,7 @@ public class CubeGenerator : MonoBehaviour
             t.transform.parent = transform;
         }
     }
-
+*/
     public void RotateFFace()
     {
         List<Transform> temps = new List<Transform>();
@@ -335,11 +335,11 @@ public class CubeGenerator : MonoBehaviour
             RotateUFace();
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        /*if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             Debug.Log("Rotating right face");
             RotateRFace();
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
