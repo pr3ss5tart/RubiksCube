@@ -85,6 +85,7 @@
     <Compile Include="Assets\RCube_Scripts\SelectFace.cs" />
     <Compile Include="Assets\RCube_Scripts\SolveTwoPhase.cs" />
     <Compile Include="Assets\RCube_Scripts\WarningPanel.cs" />
+    <Compile Include="Assets\SettingsManager.cs" />
     <Compile Include="Assets\Slerper.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

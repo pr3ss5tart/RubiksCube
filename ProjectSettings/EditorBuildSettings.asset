@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: 5b74013c63aa08048938a5e9847103cd
+  - enabled: 1
+    path: Assets/Scenes/rcubeTest.unity
+    guid: 849b41238ed6ddd4d83d731c58721843
   m_configObjects: {}
