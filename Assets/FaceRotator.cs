@@ -349,16 +349,17 @@ public class FaceRotator : MonoBehaviour
         {
             //this parents cubes to main cube
             Transform temp = rightRot.transform.GetChild(0);
-            //temp.parent = transform;
-            temps.Add(temp);
-        }
-
-        foreach (Transform t in temps)
-        {
-            t.transform.parent = transform; //parent to main cube
+            temp.parent = transform;
+            //temps.Add(temp);
             Debug.Log("Right Child removed");
 
         }
+
+        /*foreach (Transform t in temps)
+        {
+            t.transform.parent = transform; //parent to main cube
+
+        }*/
         transform.rotation = Quaternion.identity;
         //targetRotation = Quaternion.identity;
         ogRotation = Quaternion.identity;
@@ -372,16 +373,17 @@ public class FaceRotator : MonoBehaviour
         {
             //this parents cubes to main cube
             Transform temp = leftRot.transform.GetChild(0);
-            //temp.parent = transform;
-            temps.Add(temp);
-        }
-
-        foreach (Transform t in temps)
-        {
-            t.transform.parent = transform; //parent to main cube
+            temp.parent = transform;
+            //temps.Add(temp);
             Debug.Log("Child removed");
 
         }
+
+        /*foreach (Transform t in temps)
+        {
+            t.transform.parent = transform; //parent to main cube
+
+        }*/
         transform.rotation = Quaternion.identity;
         //targetRotation = Quaternion.identity;
         //ogRotation = Quaternion.identity;
@@ -399,10 +401,10 @@ public class FaceRotator : MonoBehaviour
             Debug.Log("Child "+topRot.transform.childCount+" removed");
         }
 
-        foreach (Transform t in temps)
+        /*foreach (Transform t in temps)
         {
             t.transform.parent = transform; //parent to main cube
-        }
+        }*/
         transform.rotation = Quaternion.identity;
         //targetRotation = Quaternion.identity;
         //ogRotation = Quaternion.identity;
@@ -435,16 +437,19 @@ public class FaceRotator : MonoBehaviour
         //Set target rotation for axis
         if (axis == "X")
         {
+            Debug.Log("Setting X Axis");
             targetRotation = Quaternion.Euler(rotationValue, 0, 0);
         }
 
         if (axis == "Y")
         {
+            Debug.Log("Setting Y Axis");
             targetRotation = Quaternion.Euler(0, rotationValue, 0);
         }
 
         if (axis == "Z")
         {
+            Debug.Log("Setting Z Axis");
             targetRotation = Quaternion.Euler(0, 0, rotationValue);
         }
     }
